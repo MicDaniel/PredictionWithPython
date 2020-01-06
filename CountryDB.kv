@@ -1,0 +1,46 @@
+<Row@BoxLayout>:
+    canvas.before:
+        Color:
+            rgba: 0.5, 0.5, 0.5, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    value: ''
+    Label:
+        text: root.value
+
+<CountryDB>:
+    id: home_screen
+    orientation: "vertical"
+    top_layout: topLayoutID
+    padding: 10
+    spacing: 10
+
+    FloatLayout:
+        pos_hint: {'x': 0, 'y': .9}
+        size_hint: 0, 0
+        Button:
+            id: topLayoutID
+            width: 50
+            height: 50
+            on_release: root.drop_down.open(self)
+
+    BoxLayout:
+        size_hint_y: None
+        height: "40dp"
+
+        Button:
+            text: "Simple Plot"
+            size_hint_x: 15
+            on_press: root.plotData()
+
+        Button:
+            text:"Moving Average"
+            size_hint_x: 15
+            on_press: root.movingAverageButton()
+
+        Button:
+            text:"Weighted Moving Average"
+            size_hint_x: 15
+            on_press: root.weigthedMovingAverageButton()
+
